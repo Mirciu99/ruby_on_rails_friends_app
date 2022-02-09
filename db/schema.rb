@@ -15,6 +15,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_09_070609) do
     t.string "name"
     t.string "job"
     t.integer "age"
+    t.string "sport"
+    t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

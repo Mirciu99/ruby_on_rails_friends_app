@@ -29,14 +29,22 @@ class FriendsController < ApplicationController
     @friend = Friend.find(params[:id])
     
     if @friend.update(friend_params)
-      redirect to action: "index"
+      redirect_to action: "index"
     else
       render :edit, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @friend = Friend.find(params[:id])
+    @friend.destroy
+
+    redirect_to action: "index"
+  end
+
   private
 
   def friend_params
-    params.require(:friend).permit(:name, :job, :age)
+    params.require(:friend).permit(:name, :job, :age, :sport, :body)
   end
 end

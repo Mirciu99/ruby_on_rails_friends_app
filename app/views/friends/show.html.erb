@@ -1,1 +1,15 @@
-<h1 class="d-flex align-items-center justify-content-center"> Hi <%= @friend.name %></h1>
+<h1 class="d-flex align-items-center justify-content-center" style="margin-bottom:100px"> Hi from <%= @friend.name %></h1>
+
+<div class="d-flex align-items-center justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h3 class="card-title"><%= @friend.name %></h3>
+      <h6 class="card-subtitle"><%= @friend.job %></h6>
+      <br/>
+      <p class="card-text">Age: <%= @friend.age %></p>
+      <p class="card-text">Sport: <%= @friend.sport %></p>
+      <p class="card-text">Informations: <%= @friend.body %></p>
+      <a class="btn btn-light"><%= link_to "Go Back", friends_path%></a>
+    </div>
+  </div>
+</div>

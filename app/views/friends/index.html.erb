@@ -15,9 +15,13 @@
         <td><%= friend.job%></td>
         <td><%= friend.age%></td>
         <td><%= link_to "Show", friend %></td>
-        <td><%= link_to "Add", new_friend_path %></td>
         <td><%= link_to "Update", edit_friend_path(friend) %></td>
+        <td><%= link_to "Delete", friend_path(friend), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+        } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<button type="button" class="btn btn-light"><%= link_to "Add", new_friend_path %></button>
