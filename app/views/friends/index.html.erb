@@ -1,0 +1,23 @@
+<h1 class="d-flex align-items-center justify-content-center">Friends</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Job</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend|%>
+      <tr>
+        <td><%= friend.name%></td>
+        <td><%= friend.job%></td>
+        <td><%= friend.age%></td>
+        <td><%= link_to "Show", friend %></td>
+        <td><%= link_to "Add", new_friend_path %></td>
+        <td><%= link_to "Update", edit_friend_path(friend) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

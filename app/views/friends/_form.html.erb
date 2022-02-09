@@ -1,0 +1,30 @@
+<%= form_with model: @friend do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name, class:"form-control" %>
+    <% @friend.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message%></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :job, class:"form-label" %>
+    <%= form.text_field :job, class:"form-control" %>
+    <% @friend.errors.full_messages_for(:job).each do |message| %>
+      <div><%= message%></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :age, class:"form-label" %>
+    <%= form.text_field :age, class:"form-control"%>
+    <% @friend.errors.full_messages_for(:age).each do |message| %>
+      <div><%= message%></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Friend", class:"btn btn-primary" %>
+  </div>
+  
+<% end %>
