@@ -1,4 +1,4 @@
-<h1 class="d-flex align-items-center justify-content-center" style="margin-bottom:100px"> Hi from <%= @friend.name %></h1>
+<h1 class="d-flex align-items-center justify-content-center" style="margin-bottom:50px"> Hi from <%= @friend.name %></h1>
 
 <div class="d-flex align-items-center justify-content-center">
   <div class="card" style="width: 18rem;">
@@ -10,7 +10,19 @@
       <p class="card-text">Age: <%= @friend.age %></p>
       <p class="card-text">Sport: <%= @friend.sport %></p>
       <p class="card-text">Informations: <%= @friend.body %></p>
-      <a class="btn btn-light"><%= link_to "Go Back", friends_path%></a>
+      <%= link_to "Go Back", friends_path, class:"btn btn-secondary"%>
+      <%= link_to "Add Comment", friend_comment_path(@friend), class:"btn btn-secondary"%>
     </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <% @friend.comments.each do |comment|%>
+      <div class="card-body">
+        <h3 class="card-title">Comment</h3>
+        <h6 class="card-subtitle">- <%= comment.commenter_name %></h6>
+        <br/>
+        <p class="card-text"><%= comment.body %></p>
+    </div>
+    <% end %>
   </div>
 </div>

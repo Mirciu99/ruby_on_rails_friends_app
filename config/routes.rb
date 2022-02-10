@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   # get "/friends", to: "friends#index"
   # get "/friends/:id", to: "friends#show", as: "friend"
 
-  resources :friends
+  resources :friends do 
+    resources :comments
+  end
 end

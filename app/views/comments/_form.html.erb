@@ -1,0 +1,17 @@
+<h1>Add a comment! </h1>
+<%= form_with model: [ @friend, @friend.comments.build ] do |form| %>
+  <div class="mb-3">
+    <%= form.label :commenter, class:"form-label" %>
+    <%= form.text_field :commenter_name, class:"form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :text, class:"form-label" %>
+    <%= form.text_field :body, class:"form-control"%>
+  </div>
+
+  <div>
+    <%= link_to "Go Back", friend_path(@friend), class:"btn btn-secondary"%>
+    <%= form.submit "Add Comment", class:"btn btn-primary" %>
+  </div>
+<% end %>
