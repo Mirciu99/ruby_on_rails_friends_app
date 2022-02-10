@@ -3,6 +3,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">Avatar</th>
       <th scope="col">Name</th>
       <th scope="col">Job</th>
       <th scope="col">Age</th>
@@ -11,12 +12,15 @@
   <tbody>
     <% @friends.each do |friend|%>
       <tr>
+        <% if friend.image.attached?%>
+          <td><%= image_tag friend.image, style:"width:50px; height:50px; border-radius:50%;"%></td>
+        <% end %>
         <td><%= friend.name%></td>
         <td><%= friend.job%></td>
         <td><%= friend.age%></td>
-        <td><%= link_to "Show", friend %></td>
-        <td><%= link_to "Update", edit_friend_path(friend) %></td>
-        <td><%= link_to "Delete", friend_path(friend), data: {
+        <td><%= link_to "Show", friend, class:"btn btn-light" %></td>
+        <td><%= link_to "Update", edit_friend_path(friend), class:"btn btn-success" %></td>
+        <td><%= link_to "Delete", friend_path(friend), class:"btn btn-danger", data: {
         turbo_method: :delete,
         turbo_confirm: "Are you sure?"
         } %></td>
@@ -24,4 +28,4 @@
     <% end %>
   </tbody>
 </table>
-<button type="button" class="btn btn-light"><%= link_to "Add", new_friend_path %></button>
+<%= link_to "Add", new_friend_path, class:"btn btn-primary" %>
